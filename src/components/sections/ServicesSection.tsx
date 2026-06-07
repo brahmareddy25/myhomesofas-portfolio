@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Settings, Maximize, Briefcase, Ruler, PenTool, Truck, ArrowRight, ShieldCheck } from 'lucide-react';
@@ -56,6 +57,8 @@ const services = [
 ];
 
 export default function ServicesSection() {
+  const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
+
   return (
     <section id="services" className="py-16 md:py-24 bg-black relative border-t border-white/5">
       <div className="container mx-auto px-6 md:px-12">
@@ -101,8 +104,9 @@ export default function ServicesSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="relative w-full h-[320px] md:h-[320px] min-h-[320px] group cursor-pointer perspective-1000"
+              onClick={() => setFlippedIndex(flippedIndex === index ? null : index)}
             >
-              <div tabIndex={0} className="w-full h-full relative preserve-3d transition-transform duration-700 ease-out md:group-hover:rotate-y-180 group-focus:rotate-y-180">
+              <div className={`w-full h-full relative preserve-3d transition-transform duration-700 ease-out md:group-hover:rotate-y-180 ${flippedIndex === index ? 'rotate-y-180' : ''}`}>
                 
                 {/* Front Side */}
                 <div className="absolute inset-0 backface-hidden bg-dark-charcoal border border-white/10 rounded-2xl p-8 flex flex-col justify-center items-center text-center">

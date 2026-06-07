@@ -14,7 +14,8 @@ export default function TestimonialsSection() {
           loop 
           muted 
           playsInline
-          className="w-full h-full object-cover scale-105"
+          preload="auto"
+          className="w-full h-full object-cover scale-105 bg-dark-charcoal"
         />
         {/* Premium Dark Cinematic Overlay */}
         <div className="absolute inset-0 bg-black/50" />

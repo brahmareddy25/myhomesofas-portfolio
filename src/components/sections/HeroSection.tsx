@@ -14,7 +14,8 @@ export default function HeroSection() {
           loop
           muted
           playsInline
-          className="object-cover w-full h-full"
+          preload="auto"
+          className="object-cover w-full h-full bg-dark-charcoal"
         />
         {/* Dark Premium Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />

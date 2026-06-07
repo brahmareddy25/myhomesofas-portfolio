@@ -28,7 +28,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${playfair.variable} h-full antialiased bg-black`}
     >
-      <body className="min-h-full flex flex-col text-white bg-black">
+      <body className="min-h-full flex flex-col text-white bg-black overflow-x-hidden">
         <SmoothScrollProvider>
           {children}
         </SmoothScrollProvider>

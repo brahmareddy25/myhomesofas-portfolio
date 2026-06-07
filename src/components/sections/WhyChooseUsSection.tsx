@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Users, Ruler, ShieldCheck, Truck, MapPin, Gem } from 'lucide-react';
 
@@ -43,6 +44,8 @@ const features = [
 ];
 
 export default function WhyChooseUsSection() {
+  const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
+
   return (
     <section id="why-us" className="py-16 md:py-24 bg-black relative">
       <div className="container mx-auto px-6 md:px-12">
@@ -84,8 +87,9 @@ export default function WhyChooseUsSection() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="relative w-full h-[320px] md:h-[280px] min-h-[320px] md:min-h-[280px] group cursor-pointer perspective-1000"
+              onClick={() => setFlippedIndex(flippedIndex === index ? null : index)}
             >
-              <div tabIndex={0} className="w-full h-full relative preserve-3d transition-transform duration-700 ease-out md:group-hover:rotate-x-180 group-focus:rotate-x-180">
+              <div className={`w-full h-full relative preserve-3d transition-transform duration-700 ease-out md:group-hover:rotate-x-180 ${flippedIndex === index ? 'rotate-x-180' : ''}`}>
                 
                 {/* Front Side */}
                 <div className="absolute inset-0 backface-hidden bg-dark-charcoal border border-white/5 rounded-2xl p-8 flex flex-col justify-center items-center text-center shadow-lg">
